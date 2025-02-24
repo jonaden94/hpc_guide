@@ -1,6 +1,7 @@
 # Prelminaries
 * This repository should be cloned into a folder named "repos" in your home directory.
-* The shell commands provided in this guide assume that you have a terminal opened with the root directory of this repository as the working directory.
+* It is further assumed that you use a linux shell, e.g. ``bash``. You can choose which shell is used on the SCC/NHR on your AcademicCloud profile under ``OTHER``:
+* The shell commands provided in this guide assume that you have a shell opened with the root directory of this repository as the working directory.
 
 # 1. Creating symlinks to scratch + installing miniforge
 
@@ -12,10 +13,10 @@ source 1_setup/install_miniforge_nhr.sh # run if on NHR
 source 1_setup/install_miniforge_scc.sh # run if on SCC
 ```
 * The installation of miniforge might take a while.
-* If you are on the NHR, you will notice that there are two scratch folders. More details about when to use which storage can be found [here](https://docs.hpc.gwdg.de/how_to_use/the_storage_systems/data_stores/scratch_work/index.html). Roughly speaking, the connection of scratch emmy to GPU nodes is a little slower, but it has less capacity issues. So it is preferred to use scratch emmy in most cases. Both storages are meant for active data and do not have a backup! Do not use it for archived data.
+* If you are on the NHR, you will notice that there are two scratch folders. More details about when to use which storage can be found [here](https://docs.hpc.gwdg.de/how_to_use/the_storage_systems/data_stores/scratch_work/index.html). Roughly speaking, the connection of scratch emmy to GPU nodes is a little slower, but it has less capacity issues. So it is preferred to use scratch emmy in most cases. Both storages are limited in capacity and are meant for active data only. They also do not have a backup!
 
 # 2. Creating conda environment with Pytorch
-* Once miniforge has been installed and initialized, you can create your own conda environments. The examples in this guide only require pytorch to be installed. You can install it by running the following command:
+* Once miniforge has been installed and initialized, you can create your own conda environments. The examples in this guide only require pytorch to be installed. If conda is activated, you can install an environment containing pytorch by running the following command:
 ```
 source hpc_guide/1_setup/create_env.sh
 ```

@@ -9,4 +9,6 @@ wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/
 bash Miniforge3.sh -b -p "$HOME/scratch/scratch_emmy/conda"
 rm Miniforge3.sh
 
-source $HOME/scratch/scratch_rzg/conda/etc/profile.d/conda.sh
+# initialize conda in shell
+source $HOME/scratch/scratch_emmy/conda/etc/profile.d/conda.sh
+conda init
