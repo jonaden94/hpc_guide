@@ -35,8 +35,8 @@ srun python $HOME/repos/hpc_guide/3_distributed_training/distributed_training.py
 * Of course, you also need to make some modifications to the training script so that multiple processes are launched that are then communicating with each other. A minimal example distributed training script based on pytorch is located at ``3_distributed_training/distributed_training.py``, which is called in the example above with ``srun``. ``srun`` is used to launch parallel jobs, which are able to communicate with each other if needed.
 * To run distributed training on 2 GPUs, run the following command:
 ```
-sbatch 2_request_resources/submit_job/distributed_training_nhr.sh # if on NHR
-sbatch 2_request_resources/submit_job/distributed_training_scc.sh # if on SCC
+sbatch 3_distributed_training/distributed_training_nhr.sh # if on NHR
+sbatch 3_distributed_training/distributed_training_scc.sh # if on SCC
 ```
 * Feel free to increase the number of nodes to two or also the number of GPUs to four to use more resources for distributed training. Note, however, that this might lead to larger waiting times in case the resources are not available.
 * See [here](https://pytorch.org/tutorials/distributed/home.html) for more information on distributed training in pytorch.

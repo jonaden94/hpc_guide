@@ -19,11 +19,11 @@ conda activate torch_env
 
 # running python script
 echo "running script"
-python $HOME/repos/hpc_guide/2_request_resources/batch_job/train.py
+python $HOME/repos/hpc_guide/2_request_resources/submit_job/train.py
 echo "Python script executed"
 
 ```
-* You specify the characteristics of the compute resource and other parameters of your job via lines beginning with #SBATCH. A comprehensive list of slurm options can be found [here](https://slurm.schedmd.com/sbatch.html).
+* You specify the characteristics of the compute resource and other parameters of your job via lines beginning with ``#SBATCH``. A comprehensive list of slurm options can be found [here](https://slurm.schedmd.com/sbatch.html).
 * A specification of the available compute nodes (e.g. grete:shared in the first SBATCH line) and their characteristics on the SCC and NHR can be found [here](https://docs.hpc.gwdg.de/how_to_use/compute_partitions/gpu_partitions/index.html#the-cpus-and-gpus)
 * Below the SBATCH specifications, you should put everything that is related to running your functionality that uses the requested resources. For example, in the example script given above this involves (1) defining an output file, (2) initializing and activating conda, and (3) running the training script 
 * Running the example script displayed above can be done by using the following command. The example is a minimal pytorch training script:
@@ -63,11 +63,12 @@ Host ggpu159 # adapt based on the compute node you have been assigned to
    ProxyJump your_login_node # nhr_login or scc_login
 ```
 * You can then simply use the ``remote-ssh`` extension of VS Code to ssh to the compute node (just as you did to ssh to the login node) and use the resources interactively. For example, you can open the notebook located at ``2_request_resources/interactive/notebook.ipynb`` to create a tensor and put it on a GPU.
+* To save resources, interactive jobs should be run on "GPU slices", i.e. one GPU split up so that it can be used by multiple people. This is specified in the batch script with the ``SBATCH -G 1g.20gb`` option. In principle, it is also possible to request interactive jobs for full GPUs
 
 
 # 3. Further slurm commands
 * There are some useful slurm shell commands to monitor your jobs or the availability of resources. You already saw ``squeue`` above. Other commands are:
-    * sinfo -p partition_name # get info about partition (how many nodes are available at the moment etc.)
-    * scancel your_job-id     # cancel your job. This is e.g. important to free interactive resources that you do not need anymore
+    * ``sinfo -p partition_name`` # get info about partition (how many nodes are available at the moment etc.)
+    * ``scancel your_job-id``     # cancel your job. This is e.g. important to free interactive resources that you do not need anymore
 * scancel is important if jobs get stuck or you want terminate an interactive session that is running on ``sleep infinity``. It is important to free resources so that others can use them.
 * A comprehensive list of slurm commands can be found [here](https://curc.readthedocs.io/en/latest/running-jobs/slurm-commands.html)

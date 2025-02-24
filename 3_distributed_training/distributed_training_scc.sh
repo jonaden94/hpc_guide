@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH -p grete
+#SBATCH -p gpu
 #SBATCH --nodes=1                # node count (can also increase for multi-node training)
-#SBATCH --gpus-per-node=A100:2   # total number of gpus per node
+#SBATCH --gpus-per-node=2   # total number of gpus per node
 #SBATCH --ntasks-per-node=2      # total number of tasks per node
 #SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
 #SBATCH --time=00:05:00          # total run time limit (HH:MM:SS)

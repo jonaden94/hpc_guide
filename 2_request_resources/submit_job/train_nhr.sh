@@ -21,5 +21,5 @@ conda activate torch_env
 
 # running python script
 echo "running script"
-python $HOME/repos/hpc_guide/2_request_resources/batch_job/train.py
+python $HOME/repos/hpc_guide/2_request_resources/submit_job/train.py
 echo "Python script executed"

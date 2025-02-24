@@ -64,7 +64,7 @@ def main():
     gpus_per_node = int(os.environ["SLURM_GPUS_ON_NODE"])
     
     # confirm initialization of rank processes
-    print(f"Hello from rank {rank}/{world_size} on {gethostname()}", flush=True)
+    print(f"Hello from rank {rank}/{world_size-1} on {gethostname()}", flush=True)
     
     # set device to local rank (gpu number on specific node)
     local_rank = rank - gpus_per_node * (rank // gpus_per_node)

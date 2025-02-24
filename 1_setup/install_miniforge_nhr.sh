@@ -1,8 +1,8 @@
 # create symbolic links to data storages
 cd ~
-mkdir scratch
-ln -s /mnt/lustre-grete/usr/$USER scratch/scratch_grete
-ln -s /mnt/lustre-emmy-ssd/usr/$USER scratch/scratch_emmy
+mkdir $HOME/scratch
+ln -s /mnt/lustre-grete/usr/$USER $HOME/scratch/scratch_grete
+ln -s /mnt/lustre-emmy-ssd/usr/$USER $HOME/scratch/scratch_emmy
 
 # download and install miniforge to scratch_emmy
 wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
