@@ -31,6 +31,10 @@ echo "Python script executed"
 sbatch 2_request_resources/submit_job/train_nhr.sh # if on NHR
 sbatch 2_request_resources/submit_job/train_scc.sh # if on SCC
 ```
+* To see the current status of your job (i.e. whether still in queue or already running), run the following command:
+```
+squeue --me
+```
 * You can inspect the output of the training script at ``~/output``
 
 # 2. Using compute resources interactively in an ipython notebook
@@ -66,9 +70,13 @@ Host ggpu159 # adapt based on the compute node you have been assigned to
 * To save resources, interactive jobs should be run on "GPU slices", i.e. one GPU split up so that it can be used by multiple people. This is specified in the batch script with the ``SBATCH -G 1g.20gb`` option. In principle, it is also possible to request interactive jobs for full GPUs
 
 
-# 3. Further slurm commands
+# 3. Further slurm commands and knowledge
 * There are some useful slurm shell commands to monitor your jobs or the availability of resources. You already saw ``squeue`` above. Other commands are:
     * ``sinfo -p partition_name`` # get info about partition (how many nodes are available at the moment etc.)
     * ``scancel your_job-id``     # cancel your job. This is e.g. important to free interactive resources that you do not need anymore
 * scancel is important if jobs get stuck or you want terminate an interactive session that is running on ``sleep infinity``. It is important to free resources so that others can use them.
 * A comprehensive list of slurm commands can be found [here](https://curc.readthedocs.io/en/latest/running-jobs/slurm-commands.html)
+* If you are in an interactive session and want to run a script and then close your notebook, you can make use of the ``tmux`` command. tmux opens its own shell that remains even if you disconnect from the server. A list of useful tmux commands can be found [here](https://gist.github.com/MohamedAlaa/2961058)
+* for GPU monitoring in an interactive session, you can use ``nvidia-smi`` or ``nvtop``. This way, you can check whether GPU utilization and memory usage is optimized for the program you run.
+* You can create custom shell commands by modifying your ``.bashrc`` file that is located in your home directory. For example, you might want to create aliases for shell commands that you use often. Just ask ChatGPT what .bashrc is and how you can make use of it :)
+
