@@ -1,12 +1,16 @@
 # Prelminaries
 * This repository should be cloned into a folder named "repos" in your home directory.
-* It is further assumed that you use a linux shell, e.g. ``bash``. You can choose which shell is used on the SCC/NHR on your AcademicCloud profile under ``OTHER``:
+* It is further assumed that you use a linux shell, e.g. ``bash``. You can choose which shell is used on the SCC/NHR on your AcademicCloud profile under ``OTHER``.
 * The shell commands provided in this guide assume that you have a shell opened with the root directory of this repository as the working directory.
 
 # 1. Creating symlinks to scratch + installing miniforge
 
 * miniforge is a minimal distribution of conda that allows to structure packages, for example python packages, into environments.
-* Installing miniforge in your home directory is not recommended on the NHR/SCC since the disc space is limited. Both clusters provide specialized data storages (called "scratch"), which have a larger capacity and are mounted there. It is recommended to create symbolic links to scratch in your home directory. You can then store larger data there and conveniently access it via the GUI of VS Code. 
+* You can install miniforge in your home directory, but I would not recommend this since disc space is quite limited there. 
+* Instead, I would recommend to use the project data store, which is much larger. Details on different data stores can be found [here](https://docs.hpc.gwdg.de/how_to_use/the_storage_systems/index.html)
+* You can create symbolic links to different
+
+Both clusters provide specialized data storages (called "scratch"), which have a larger capacity and are mounted there. It is recommended to create symbolic links to scratch in your home directory. You can then store larger data there and conveniently access it via the GUI of VS Code. 
 * Running the following shell script will automatically set up symbolic links to scratch at ``~/scratch`` and install miniforge there:
 ```
 source 1_setup/install_miniforge_nhr.sh # run if on NHR
