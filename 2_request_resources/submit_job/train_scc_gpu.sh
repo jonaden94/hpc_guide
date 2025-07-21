@@ -1,7 +1,8 @@
 #!/bin/bash
-#SBATCH -p grete:shared     # partition to submit job to
-#SBATCH -G A100:1           # optionally specify which gpu to request and how many e.g. A100:2
-#SBATCH -t 0-00:01:00       # time limit in days-hours:minutes:seconds
+#SBATCH -p jupyter          # partition to submit job to (scc-gpu for more powerful GPUs)
+#SBATCH -G RTX5000:1        # specify which gpu to request and how many e.g. V100:2
+#SBATCH -t 01:00:00         # time limit in hours:minutes:seconds
+#SBATCH -A scc_uwvn_kneib   # name of the compute project you are in
 #SBATCH --output=/dev/null  # you can delete this line. Then it will automatically log stdout to current_work_dir/output/<jobid>.out
 #SBATCH --error=/dev/null   # you can delete this line. Then it will automatically log stderr to current_work_dir/output/<jobid>.out
 
@@ -16,7 +17,7 @@ exec > "$OUTPUT_DIR/job-${SLURM_JOB_ID}.out" 2>&1
 
 # activate conda
 echo "activating conda"
-source $HOME/scratch/scratch_emmy/conda/etc/profile.d/conda.sh
+source $HOME/scratch/conda/etc/profile.d/conda.sh
 conda activate torch_env
 
 # running python script
