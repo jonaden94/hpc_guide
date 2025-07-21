@@ -10,7 +10,7 @@
 ```
 bash 1_setup/modify_bashrc.sh
 ```
-* When you open a new shell session now, you should see that the visual appearance of your shell prompt changed (to the better).
+* Open a new shell session now. You should see that the visual appearance of your shell prompt changed (to the better).
 
 # 2. Installing miniforge
 
@@ -23,9 +23,9 @@ bash 1_setup/modify_bashrc.sh
 ```
 bash 1_setup/install_miniforge.sh
 ```
-* The installation of miniforge might take a while and you might need to re-open your shell afterwards.
+* The installation of miniforge might take a while. After it finished, open a new shell session. Conda should now be available in this new session.
 
-# 2. Creating conda environment with Pytorch
+# 3. Creating conda environment with Pytorch
 * Once miniforge has been installed and initialized, you can create your own conda environments. The examples in this guide only require pytorch to be installed. If conda is activated, you can install an environment containing pytorch by running the following command:
 ```
 source 1_setup/create_env.sh
