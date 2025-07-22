@@ -5,7 +5,7 @@
 
 # 1. Making shell prompt nicer
 * While not absolutely necessary, it is much nicer to have a colorful shell prompt to make it easily distinguishable from the commands you run.
-* This and many other shell-related things can be modified by adapting your ``.bashrc`` file in your home directory
+* This and [many other](https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work) shell-related things can be modified by adapting your ``.bashrc`` file in your home directory
 * Run the following shell script for some basic visual enhancements of your shell prompt:
 ```
 bash 1_setup/modify_bashrc.sh
