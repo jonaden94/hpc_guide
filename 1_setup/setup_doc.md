@@ -4,7 +4,7 @@
 * The shell commands provided in this guide assume that you have a shell opened with the root directory of this repository as the working directory.
 
 # 1. Making shell prompt nicer
-* While not absolutely necessary, it is much nicer to have a colorful shell prompt to make it easily distinguishable to the commands you run.
+* While not absolutely necessary, it is much nicer to have a colorful shell prompt to make it easily distinguishable from the commands you run.
 * This and many other shell-related things can be modified by adapting your ``.bashrc`` file in your home directory
 * Run the following shell script for some basic visual enhancements of your shell prompt:
 ```
