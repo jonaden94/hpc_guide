@@ -46,6 +46,7 @@ sbatch 2_request_resources/submit_job/train_scc_gpu.sh # SCC GPUs
 squeue --me
 ```
 
+* These dummy jobs only run for a couple of seconds so that you might not see them anymore.
 * You can inspect the output of the training script at ``~/slurm_logs``
 * We also provide a minimal example for a job that starts multiple CPU tasks at once. In the dummy example, each task fits a model with a specific hyperparameter configuration. This way, you can e.g. quickly conduct hyperparameter searches in parallel. You can run this dummy hyperparameter search with the following command: 
 ```
