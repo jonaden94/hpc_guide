@@ -31,7 +31,7 @@ python $HOME/repos/hpc_guide/2_request_resources/submit_job/train_cpu.py # dummy
 ```
 
 * You specify the characteristics of the compute resource and other parameters of your job via lines beginning with ``#SBATCH``. A comprehensive list of slurm options can be found [here](https://slurm.schedmd.com/sbatch.html).
-* A specification of the available compute nodes (e.g. grete:shared in the first SBATCH line) and their characteristics on the SCC and NHR can be found [here](https://docs.hpc.gwdg.de/how_to_use/compute_partitions/index.html)
+* A specification of the available compute nodes (e.g. medium in the first SBATCH line) and their characteristics on the SCC and NHR can be found [here](https://docs.hpc.gwdg.de/how_to_use/compute_partitions/index.html)
 * Below the SBATCH specifications, you should put everything that is related to running your functionality that uses the requested resources. For example, in the example script given above this involves (1) defining an output file (in practice, you should find a better way to log your results, though), (2) initializing and activating conda, and (3) running the training script 
 * We provide a minimal example for CPU training (random forest) and GPU training (linear model) on both the NHR and SCC. The training scripts can be run using one of the following commands:
 ```
