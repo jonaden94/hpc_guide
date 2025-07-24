@@ -1,40 +1,27 @@
 import os
-import psutil
-import numpy as np
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.datasets import make_regression
-from sklearn.model_selection import train_test_split
-from multiprocessing import Process
+from sklearn.datasets import make_classification
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import log_loss
 
-# Worker process to show core usage
-def worker(index):
-    core_id = psutil.Process().cpu_num()
-    print(f"[Worker {index}] PID: {os.getpid()} running on CPU core: {core_id}")
+# Get SLURM environment variables
+task_id = int(os.environ.get("SLURM_PROCID", 0)) # n unique tasks are spawned where "n" is as defined in the SLURM script
+n_threads = len(os.sched_getaffinity(0)) # this should be equivalent to the "c" argument in the SLURM script
+node = os.uname().nodename # each of the n unique tasks reside on a single node. They way they are allocated among the requested number of nodes depends on space available on the assigned nodes. The total number of nodes is defined by the "N" argument in the SLURM script.
 
-def train_model(n_jobs):
-    print("Generating data...")
-    X, y = make_regression(n_samples=1000, n_features=20, noise=0.1, random_state=42)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+# Define list of possible max_depth values and select one based on task_id
+max_depths = list(range(2, 2000))
+max_depth = max_depths[task_id]
 
-    print(f"Training RandomForestRegressor using {n_jobs} threads...")
-    model = RandomForestRegressor(n_estimators=100, n_jobs=n_jobs, random_state=42)
-    model.fit(X_train, y_train)
+# Dummy dataset
+X, y = make_classification(n_samples=2000, n_features=20, random_state=42)
 
-    score = model.score(X_test, y_test)
-    print(f"Model R^2 score: {score:.4f}")
+# Fit model with n_jobs = n_threads
+clf = RandomForestClassifier(max_depth=max_depth, n_jobs=n_threads, random_state=42)
+clf.fit(X, y)
 
-if __name__ == "__main__":
-    num_cores = int(os.environ.get("SLURM_CPUS_PER_TASK", os.cpu_count()))
-    print(f"Using {num_cores} CPU cores...")
+# compute train loss
+y_proba = clf.predict_proba(X)
+train_loss = log_loss(y, y_proba)
 
-    # Spawn worker processes to demonstrate actual core use
-    processes = []
-    for i in range(num_cores):
-        p = Process(target=worker, args=(i,))
-        processes.append(p)
-        p.start()
-    for p in processes:
-        p.join()
-
-    # Train the model using all available cores
-    train_model(n_jobs=num_cores)
+# print results
+print(f"[Task {task_id}] running on node {node}. Using {n_threads} threads to fit random forest classifier with maximum depth of {max_depth}. Resulting train loss={train_loss:.4f}", flush=True)

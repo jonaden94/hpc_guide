@@ -1,6 +1,8 @@
 #!/bin/bash
-#SBATCH -p grete:shared # partition to submit job to
-#SBATCH -G A100:1 # optionally specify which gpu to request and how many e.g. A100:2
+#SBATCH -p standard96s:shared # partition to submit job to
+#SBATCH -N 2 # number of nodes to allocate
+#SBATCH -n 4 # total number of tasks (distributed across N nodes)
+#SBATCH -c 2 # number of CPU cores per task
 #SBATCH -t 0-00:05:00 # time limit in days-hours:minutes:seconds
 #SBATCH -A scc_uwvn_kneib # name of the compute project you are in
 #SBATCH --output=/dev/null # you can delete this line. Then it will automatically log stdout to current_work_dir/output/<jobid>.out
@@ -21,4 +23,4 @@ source ~/.bashrc
 conda activate torch_env
 
 # running python script
-python $HOME/repos/hpc_guide/2_request_resources/submit_job/train_gpu.py
+srun --unbuffered python /user/henrich1/u18550/repos/hpc_guide/2_request_resources/submit_job/train_cpu.py # dummy hyperparameter search
