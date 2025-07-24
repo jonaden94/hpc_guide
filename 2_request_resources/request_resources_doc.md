@@ -54,6 +54,9 @@ sbatch 2_request_resources/submit_job/tune_hyperparams_nhr_cpu.sh # NHR CPUs
 sbatch 2_request_resources/submit_job/tune_hyperparams_scc_cpu.sh # SCC CPUs
 ```
 
+* When you look at the hyperparameter tuning script, you will see that the python script is called with ``srun``. ``srun`` is used to run the script independently ``n`` times (n specifies the number of tasks slurm option). Based on the task number environment variable, the python script can then choose a unique hyperparameter configuration and fits the model with it.
+* Again, the output of the hyperparameter search can be inspected at ``~/slurm_logs``
+
 # 2. Using compute resources interactively in an ipython notebook
 * Sometimes you might want to use compute resources interactively for debugging or in an ipython notebook. To achieve this, you should first run an "empty" batch script that does nothing, but also does not terminate because you add a ``sleep infinity`` command:
 ```
