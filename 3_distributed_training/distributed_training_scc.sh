@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH -p gpu
-#SBATCH --nodes=1                # node count (can also increase for multi-node training)
-#SBATCH --gpus-per-node=2        # total number of gpus per node
-#SBATCH --ntasks-per-node=2      # total number of tasks per node
-#SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
-#SBATCH --time=00:05:00          # total run time limit (HH:MM:SS)
-#SBATCH --output=/dev/null       # you can delete this line. Then it will automatically log stdout to current_work_dir/output/<jobid>.out
-#SBATCH --error=/dev/null        # you can delete this line. Then it will automatically log stderr to current_work_dir/output/<jobid>.out
+#SBATCH --nodes=1                 # node count (can also increase for multi-node training)
+#SBATCH --gpus-per-node=RTX5000:2 # total number of gpus per node
+#SBATCH --ntasks-per-node=2       # total number of tasks per node
+#SBATCH --cpus-per-task=1         # cpu-cores per task (>1 if multi-threaded tasks)
+#SBATCH --time=00:05:00           # total run time limit (HH:MM:SS)
+#SBATCH --output=/dev/null        # you can delete this line. Then it will automatically log stdout to current_work_dir/output/<jobid>.out
+#SBATCH --error=/dev/null         # you can delete this line. Then it will automatically log stderr to current_work_dir/output/<jobid>.out
 
 # optionally put "#SBATCH -C inet as slurm option" and comment out the below lines for internet access on compute node (e.g. for downloading/uploading stuff)
 # export HTTPS_PROXY="http://www-cache.gwdg.de:3128"
