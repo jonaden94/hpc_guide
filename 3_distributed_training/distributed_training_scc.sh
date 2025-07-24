@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -p gpu
 #SBATCH --nodes=1                # node count (can also increase for multi-node training)
-#SBATCH --gpus-per-node=2   # total number of gpus per node
+#SBATCH --gpus-per-node=2        # total number of gpus per node
 #SBATCH --ntasks-per-node=2      # total number of tasks per node
 #SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
 #SBATCH --time=00:05:00          # total run time limit (HH:MM:SS)
@@ -13,12 +13,12 @@
 # export HTTP_PROXY="http://www-cache.gwdg.de:3128"
 
 # define directory to log output to
-OUTPUT_DIR="$HOME/output"
+OUTPUT_DIR="$HOME/slurm_logs"
 mkdir -p $OUTPUT_DIR  # Ensure the directory exists
 exec > "$OUTPUT_DIR/job-${SLURM_JOB_ID}.out" 2>&1
 
 echo "Activating conda..."
-source $HOME/scratch/conda/etc/profile.d/conda.sh
+source ~/.bashrc
 conda activate torch_env
 
 # These environment variables are required for initializing distributed training in pytorch  

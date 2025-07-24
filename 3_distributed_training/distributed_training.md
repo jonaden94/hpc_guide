@@ -39,4 +39,4 @@ sbatch 3_distributed_training/distributed_training_nhr.sh # if on NHR
 sbatch 3_distributed_training/distributed_training_scc.sh # if on SCC
 ```
 * Feel free to increase the number of nodes to two or also the number of GPUs to four to use more resources for distributed training. Note, however, that this might lead to larger waiting times in case the resources are not available.
-* See [here](https://pytorch.org/tutorials/distributed/home.html) for more information on distributed training in pytorch.
+* See [here](https://docs.pytorch.org/tutorials/beginner/dist_overview.html) for more information on distributed training in pytorch.
