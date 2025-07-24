@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -p scc-cpu # CPU partition
+#SBATCH -p medium # partition to submit job to (scc-cpu or sgiz are also possible)
 #SBATCH -c 8 # number of CPU cores to allocate
 #SBATCH -t 0-01:00:00 # time limit in days-hours:minutes:seconds
 #SBATCH -A scc_uwvn_kneib # name of the compute project you are in
