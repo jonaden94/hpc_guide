@@ -23,4 +23,4 @@ source ~/.bashrc
 conda activate torch_env
 
 # running python script
-srun --unbuffered python /user/henrich1/u18550/repos/hpc_guide/2_request_resources/submit_job/train_cpu.py # dummy hyperparameter search
+srun --unbuffered python $HOME/repos/hpc_guide/2_request_resources/submit_job/train_cpu.py # dummy hyperparameter search

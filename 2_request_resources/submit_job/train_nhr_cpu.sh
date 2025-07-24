@@ -23,4 +23,4 @@ source ~/.bashrc
 conda activate torch_env
 
 # running python script
-python /user/henrich1/u18550/repos/hpc_guide/2_request_resources/submit_job/train_cpu.py # dummy single model training
+python $HOME/repos/hpc_guide/2_request_resources/submit_job/train_cpu.py # dummy single model training
