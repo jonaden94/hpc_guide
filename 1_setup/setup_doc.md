@@ -14,11 +14,8 @@ bash 1_setup/modify_bashrc.sh
 
 # 2. Installing miniforge
 * miniforge is a minimal distribution of conda that allows to structure packages, for example python packages, into environments.
-* Although it is possible to install miniforge in your home directory, this might lead to problems since disc space is quite limited there (60 GB as of mid 2025).
-* Apart from your home directory, there are various other data stores for different purposes. A description of those data stores can be found [here](https://docs.hpc.gwdg.de/how_to_use/the_storage_systems/index.html).
-* Those data stores that are project specific (i.e. those that all members of a project can access) are automatically linked to the home directory at ``.project``. All members of a project can write to those folders.
-* A good location for miniforge is the project-specific data store that is linked to your home directory as ``.project/dir.project``.
-* Running the following shell script installs miniforge in this project-specific data store:
+* In 2025, the disc space in the home directory was increased to 60 GB, which is why it is now possible to install miniforge there without running into memory issues. Nevertheless, you should always monitor the disc space (run ``show-quota`` in command line) since it is easily possible to exceed the quota by accidentally saving large files there. There are various other data stores for these purposes (see [here](https://docs.hpc.gwdg.de/how_to_use/the_storage_systems/data_stores/index.html), more on that later)
+* Running the following shell script installs miniforge in your home directory:
 ```
 bash 1_setup/install_miniforge.sh
 ```
