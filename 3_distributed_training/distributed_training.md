@@ -1,7 +1,7 @@
 # Distributed training
 
 * The Slurm Workload Manager can also be used to request multiple GPUs or even multiple GPU nodes (each GPU node contains 4-8 GPUs) at once. Especially the NHR offers enough resources to enable large scale training of neural networks.
-* To request multiple GPUs or multiple nodes, you just have to change a slurm options at the top of the batch script. The following example, requests 2 GPUs on one node:
+* To request multiple GPUs or multiple nodes, you just have to change the corresponding slurm options at the top of the batch script. The following example, requests 2 GPUs on one node:
 ```
 #!/bin/bash
 #SBATCH -p grete
