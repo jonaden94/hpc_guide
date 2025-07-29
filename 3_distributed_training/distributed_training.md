@@ -1,3 +1,5 @@
+*Note that SCC users cannot run jobs on nodes reserved exclusively for NHR users, and vice versa. This guide provides scripts for both user groups. Make sure to select the ones that apply to you.*
+
 # Distributed training
 
 * The Slurm Workload Manager can also be used to request multiple GPUs or even multiple GPU nodes (each GPU node contains 4-8 GPUs) at once. Especially the NHR offers enough resources to enable large scale training of neural networks.
