@@ -1,3 +1,5 @@
+*Note that SCC users cannot run jobs on nodes reserved exclusively for NHR users, and vice versa. This guide provides scripts for both user groups. Make sure to select the ones that apply to you.*
+
 # 1. Submitting a job
 
 * The default way of using an HPC cluster is to submit so-called "jobs". Jobs on the NHR and SCC are submitted via the Slurm Workload Manager. Slurm batch scripts have a specific syntax that is used to specify which compute resources you request for your job. For example, a standard slurm batch script will look like this:
