@@ -14,7 +14,7 @@ bash 1_setup/modify_bashrc.sh
 
 # 2. Installing miniforge
 * miniforge is a minimal distribution of conda that allows to structure packages, for example python packages, into environments.
-* In 2025, the disc space in the home directory was increased to 60 GB, which is why it is now possible to install miniforge there without running into memory issues. Nevertheless, you should always monitor the disc space (run ``show-quota`` in command line) since it is easily possible to exceed the quota by accidentally saving large files there. There are various other data stores for these purposes (see [here](https://docs.hpc.gwdg.de/how_to_use/the_storage_systems/data_stores/index.html), more on that later)
+* In 2025, the disc space in the home directory was increased to 60 GB, which is why it is now possible to install miniforge there without running into memory issues. Nevertheless, you should always monitor the disc space (run ``show-quota`` in command line) since it is easily possible to exceed the quota by accidentally saving large files there. There are various other data stores for these purposes (more on that later)
 * Running the following shell script installs miniforge in your home directory:
 ```
 bash 1_setup/install_miniforge.sh
