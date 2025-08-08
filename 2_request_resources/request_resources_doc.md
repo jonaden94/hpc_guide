@@ -114,7 +114,7 @@ Host amp052 # adapt based on the compute node you have been assigned to
 * In practice, this is required, which is why it is important to know which data should be saved in which place. 
 * There are various different data stores with different properties (memory quota, maximum number of files quota, backup vs. no backup, etc.)
 * It is important to know which data store should be used for what.
-* A comprehensive description of different data stores can be found [here]([https://docs.hpc.gwdg.de/how_to_use/the_storage_systems/index.html](https://docs.hpc.gwdg.de/how_to_use/storage_systems/index.html))
+* A comprehensive description of different data stores can be found [here](https://docs.hpc.gwdg.de/how_to_use/storage_systems/index.html)
 * One important data store is located at ``.project/dir.project``. The quota there is quite large and it has a backup, which makes it a good place for storing medium-term data.
 * However, when your model training requires you to continuously and quickly load files during execution, this might not be the correct place to store your data. When speed is important, you should look into the so-called [workspaces](https://docs.hpc.gwdg.de/how_to_use/the_storage_systems/data_stores/workspaces/index.html). Also, most compute nodes have their own SSD which you can use to load the data on once prior to starting training and then load it from there for fast access.
 
